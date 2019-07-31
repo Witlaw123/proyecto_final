@@ -10,13 +10,5 @@ package proyecto_final;
  * @author Erick
  */
 public class Nodo {
-
-    public Nodo() {
-    }
-    
-    // WASSSAAAAP
-    
-    
-   
     
 }
