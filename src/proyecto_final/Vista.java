@@ -108,8 +108,8 @@ public class Vista extends javax.swing.JFrame { /*ESTA CLASE ES EL MAIN DEL
                     .addComponent(cmbReco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnOrdenar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -119,15 +119,12 @@ public class Vista extends javax.swing.JFrame { /*ESTA CLASE ES EL MAIN DEL
        try{
            int dato = Integer.parseInt(txtNumero.getText());
            if (this.auxiliar.insertar(dato)){
-            JOptionPane.showMessageDialog(null, "Número insertado de manera correcta", "",1);
-              
-               
-               txtNumero.setText("");
            
+               txtNumero.setText("");
            }
        
        }catch (Exception e){
-           JOptionPane.showMessageDialog(null, "No se puedo ingresar el número", "Intenta de nuevo", 0);
+           JOptionPane.showMessageDialog(null, "No se puedo ingresar el número");
        }
     }//GEN-LAST:event_btnAddActionPerformed
 

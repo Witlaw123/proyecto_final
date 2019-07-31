@@ -44,9 +44,4 @@ public class Nodo {
     public void setDer(Nodo der) {
         this.der = der;
     }
-    
-    
-    
-    
-    
 }

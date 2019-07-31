@@ -30,21 +30,21 @@ public class Arbol { /*ESTA CLASE SIRVE PARA INSERTAR DATOS EN EL ARBOL E
     
     /*Con este método vamos a insertar los datos en el arbol de búsqueda*/
     
-    public void insertar(Nodo nuevo, Nodo pivote){
+    public void insertar(Nodo nuevo, Nodo auxiliarN){
         if (this.raiz == null){
             raiz = nuevo;
         } else {
-            if (nuevo.getDato() <= pivote.getDato()){
-                if (pivote.getIzq() == null){
-                    pivote.setIzq(nuevo);
+            if (nuevo.getDato() <= auxiliarN.getDato()){
+                if (auxiliarN.getIzq() == null){
+                    auxiliarN.setIzq(nuevo);
             } else {
-                insertar (nuevo, pivote.getIzq());    
+                insertar (nuevo, auxiliarN.getIzq());    
             }
         } else {
-            if (pivote.getDer() == null) {
-                pivote.setDer(nuevo);
+            if (auxiliarN.getDer() == null) {
+                auxiliarN.setDer(nuevo);
             } else {
-                insertar(nuevo, pivote.getDer());
+                insertar(nuevo, auxiliarN.getDer());
                 }
             }
         }
