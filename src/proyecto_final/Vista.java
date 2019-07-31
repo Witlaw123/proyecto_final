@@ -144,10 +144,8 @@ public class Vista extends javax.swing.JFrame { /*ESTA CLASE ES EL MAIN DEL
         if (cmbReco.getSelectedItem() == "Postorden")
             
             recorrido = this.auxiliar.postOrden();
-        
-        
-        
-        this.txtReco.setText("");
+       
+        //this.txtReco.setText("");
         this.txtReco.setText(recorrido);
         
     }//GEN-LAST:event_btnOrdenarActionPerformed

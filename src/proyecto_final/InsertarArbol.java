@@ -28,17 +28,17 @@ public class InsertarArbol {   /*ESTA CLASE SIRVE PARA ENVIAR LOS RECORRIDOS
     
     public String preOrden() {
         LinkedList it = this.nuevoArbol.preOrden();
-        return (recorrido(it, "Preorden"));
+        return (recorrido(it, "Preorden:"));
     }
 
     public String inOrden() {
         LinkedList it = this.nuevoArbol.inOrden();
-        return (recorrido(it,  "Inorden"));
+        return (recorrido(it,  "Inorden:"));
     }
 
     public String postOrden() {
         LinkedList it = this.nuevoArbol.postOrden();
-        return (recorrido(it, "Postorden"));
+        return (recorrido(it, "Postorden:"));
     }
     
     /*Este método muestra los tipos de recorrido posibles del arbol, EL IT
@@ -50,7 +50,7 @@ public class InsertarArbol {   /*ESTA CLASE SIRVE PARA ENVIAR LOS RECORRIDOS
         int i = 0;
         String r = msg + "\n";
         while (i < it.size()) {
-            r += "\t" + it.get(i).toString() + "";
+            r += " " + it.get(i).toString();
             i++;
         }
         return (r);
