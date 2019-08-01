@@ -60,10 +60,9 @@ public class InsertarArbol {   /*ESTA CLASE SIRVE PARA ENVIAR LOS RECORRIDOS
     public String buscar(Integer dato) {
         boolean siEsta = this.nuevoArbol.encontrar(dato);
         String r = "El dato:" + dato.toString() + "\n";
-        r += siEsta ? "Si se encuentra en el arbol" : "No se encuentra en el arbol";
+        r += siEsta ? "Está en el árbol" : "No se encuentra en el arbol";
         return (r);
     }
-
 }
 
 
