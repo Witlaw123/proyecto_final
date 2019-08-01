@@ -111,4 +111,20 @@ public class Arbol { /*ESTA CLASE SIRVE PARA INSERTAR DATOS EN EL ARBOL E
             recorrido.add(aux.getDato());
         }
     }
+    
+     //Metodo para verificar si hay un nodo en el arbol
+    public boolean encontrar(int dato) {
+        Nodo aux = raiz;
+        while (aux != null) {
+            if (dato == aux.getDato()) {
+                return true;
+            } else if (dato > aux.getDato()) {
+                aux = aux.getDer();
+            } else {
+                aux = aux.getIzq();
+            }
+        }
+        return false;
+    }
+    
 }

@@ -36,23 +36,18 @@ public class Vista extends javax.swing.JFrame { /*ESTA CLASE ES EL MAIN DEL
 
         jLabel1 = new javax.swing.JLabel();
         txtNumero = new javax.swing.JTextField();
-        btnAdd = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtReco = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         cmbReco = new javax.swing.JComboBox<>();
-        btnOrdenar = new javax.swing.JToggleButton();
+        btnAgregar = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
+        btnOrdenar = new javax.swing.JButton();
+        btnBorrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Número:");
-
-        btnAdd.setText("Agregar");
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
-            }
-        });
 
         txtReco.setColumns(20);
         txtReco.setRows(5);
@@ -62,12 +57,28 @@ public class Vista extends javax.swing.JFrame { /*ESTA CLASE ES EL MAIN DEL
 
         cmbReco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Inorden", "Preorden", "Postorden" }));
 
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
         btnOrdenar.setText("Ordenar");
         btnOrdenar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOrdenarActionPerformed(evt);
             }
         });
+
+        btnBorrar.setText("Borrar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -81,16 +92,19 @@ public class Vista extends javax.swing.JFrame { /*ESTA CLASE ES EL MAIN DEL
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cmbReco, 0, 242, Short.MAX_VALUE))
-                            .addComponent(txtNumero))
+                        .addComponent(txtNumero, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAdd)
-                            .addComponent(btnOrdenar))))
+                        .addComponent(btnAgregar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBuscar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBorrar))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmbReco, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnOrdenar)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -101,7 +115,9 @@ public class Vista extends javax.swing.JFrame { /*ESTA CLASE ES EL MAIN DEL
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAdd))
+                    .addComponent(btnAgregar)
+                    .addComponent(btnBuscar)
+                    .addComponent(btnBorrar))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -115,8 +131,9 @@ public class Vista extends javax.swing.JFrame { /*ESTA CLASE ES EL MAIN DEL
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-       try{
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        
+         try{
            int dato = Integer.parseInt(txtNumero.getText());
            if (this.auxiliar.insertar(dato)){
            
@@ -126,11 +143,10 @@ public class Vista extends javax.swing.JFrame { /*ESTA CLASE ES EL MAIN DEL
        }catch (Exception e){
            JOptionPane.showMessageDialog(null, "No se puedo ingresar el número");
        }
-    }//GEN-LAST:event_btnAddActionPerformed
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarActionPerformed
         // TODO add your handling code here:
-        
         String recorrido = null;
         
         if(cmbReco.getSelectedItem() == "Inorden")
@@ -145,10 +161,16 @@ public class Vista extends javax.swing.JFrame { /*ESTA CLASE ES EL MAIN DEL
             
             recorrido = this.auxiliar.postOrden();
        
-        //this.txtReco.setText("");
         this.txtReco.setText(recorrido);
         
+        
     }//GEN-LAST:event_btnOrdenarActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        
+        int dato = Integer.parseInt(txtNumero.getText());
+        this.txtReco.setText(auxiliar.buscar(dato));
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,8 +208,10 @@ public class Vista extends javax.swing.JFrame { /*ESTA CLASE ES EL MAIN DEL
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton btnAdd;
-    private javax.swing.JToggleButton btnOrdenar;
+    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnBorrar;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnOrdenar;
     private javax.swing.JComboBox<String> cmbReco;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
