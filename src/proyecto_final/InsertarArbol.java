@@ -20,6 +20,13 @@ public class InsertarArbol {   /*ESTA CLASE SIRVE PARA ENVIAR LOS RECORRIDOS
     
     }
     
+    public String borrarMenor(){
+        return this.nuevoArbol.borrarMenor();
+    }
+    public String borrarMayor(){
+        return this.nuevoArbol.borrarMayor();
+    }
+    
     public boolean insertar(Integer dato) {
         return (this.nuevoArbol.agregar(dato));
     }
@@ -59,7 +66,7 @@ public class InsertarArbol {   /*ESTA CLASE SIRVE PARA ENVIAR LOS RECORRIDOS
     //Metodo para buscar dato en el nodo
     public String buscar(Integer dato) {
         boolean siEsta = this.nuevoArbol.encontrar(dato);
-        String r = "El dato:" + dato.toString() + "\n";
+        String r = "El dato: " + dato.toString() + "\n";
         r += siEsta ? "Está en el árbol" : "No se encuentra en el arbol";
         return (r);
     }

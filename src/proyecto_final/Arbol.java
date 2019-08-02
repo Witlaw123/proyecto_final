@@ -15,7 +15,7 @@ public class Arbol { /*ESTA CLASE SIRVE PARA INSERTAR DATOS EN EL ARBOL E
     
     private Nodo raiz;
    
-    int alt;    
+  
     
     public Arbol(){
     
@@ -49,6 +49,51 @@ public class Arbol { /*ESTA CLASE SIRVE PARA INSERTAR DATOS EN EL ARBOL E
             }
         }
     }
+    
+        
+   public String borrarMenor() {
+        Nodo nuevo=raiz.getIzq();
+        if (raiz != null) {
+            if (raiz.getIzq() == null) {
+                raiz = raiz.getDer();
+            } else {
+                Nodo anterior = raiz;
+                nuevo = raiz.getIzq();
+                while (nuevo.getIzq() != null) {
+                    anterior = nuevo;
+                    nuevo = nuevo.getIzq();
+                }
+                
+                anterior.setIzq(nuevo.getDer());
+            }
+            
+        }
+   return ("Valor eliminado: " + nuevo.getDato());
+   }
+    
+   
+   public String borrarMayor() {
+        Nodo nuevo=raiz.getIzq();
+        if (raiz != null) {
+            if (raiz.getDer() == null) {
+                raiz = raiz.getIzq();
+            } else {
+                Nodo anterior = raiz;
+                nuevo = raiz.getDer();
+                while (nuevo.getDer() != null) {
+                    anterior = nuevo;
+                    nuevo = nuevo.getDer();
+                }
+                
+                anterior.setDer(nuevo.getIzq());
+            }
+        }
+        return ("Valor eliminado: " + nuevo.getDato());
+    }
+   
+   
+   
+   
     
     public Nodo getRaiz(){
         return raiz;
